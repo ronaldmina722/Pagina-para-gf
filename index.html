@@ -1,4 +1,3 @@
-!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -71,18 +70,18 @@
                     <h3>¿Qué hay en tu mente hoy? ✨</h3>
                     <input type="text" id="tituloNota" placeholder="Título de tu nota o momento..." required>
                     <textarea rows="4" id="contenidoNota" placeholder="Escribe tu día a día aquí. Si deseas añadir una foto o video..." required></textarea>
-                
+                    <input type="file" id="archivo-post" accept="image/*, video/*">
                         </label>
                         <button type="submit" class="btn-submit">Publicar en nuestro muro</button>
                     </div>
                 </form>
             </div>
-            <div class="blog-poster-container" style="margin-top: 30px; border-top: 2px dashed #d3440c; padding-top: 30px;">
+            <div class="blog-poster-container" style="margin-top: 30px; border-top: 2px dashed #24d41e; padding-top: 30px;">
     <form class="post-form" id="formularioDonRo">
-        <h3>Ronald reportandose!!</h3>
+        <h2 class="firma-ronald">Ronald reportándose...</h2>
         <input type="text" id="tituloDonRo" placeholder="Título de tu nota o momento..." required>
         <textarea rows="4" id="contenidoDonRo" placeholder="Escribe aquí tu día, un poema, o lo que quieras recordarle..." required></textarea>
-        
+        <input type="file" id="archivo-post" accept="image/*, video/*">
 
             <button type="submit" class="btn-submit" style="background-color: #4a5d6e;">Publicar como DonRo</button>
         </div>
@@ -251,6 +250,7 @@
             }
         });
     </script>
-
+    <script src="script.js"></script> 
+    
 </body>
 </html>
