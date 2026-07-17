@@ -1,4 +1,4 @@
-/* --- Variables de Diseño y Paleta de Colores Contemporánea --- */
+* --- Variables de Diseño y Paleta de Colores Contemporánea --- */
 :root {
     --bg-primary: #faf9f6b4; /* Blanco roto / crema suave */
     --bg-secondary: #eed85d;
@@ -188,8 +188,8 @@ h1, h2, h3 {
     backdrop-filter: blur(4px);
 }
 
-.tag-tuya { background-color: rgba(9, 197, 50, 0.9); }
-.tag-ella { background-color: rgba(184, 125, 125, 0.9); }
+.tag-tuya { background-color: rgba(9, 182, 18, 0.9); }
+.tag-ella { background-color: rgba(184, 11, 146, 0.9); }
 
 /* Tamaños Bento Ajustados */
 @media (min-width: 768px) {
@@ -236,7 +236,7 @@ h1, h2, h3 {
 }
 
 .her-card {
-    border: 1px solid rgba(199, 8, 157, 0.15);
+    border: 1px solid rgba(118, 216, 6, 0.15);
 }
 
 /* Formulario para que ella escriba */
