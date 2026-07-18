@@ -1,4 +1,5 @@
-html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,81 +13,77 @@ html lang="es">
 <body>
 
     <header class="navbar">
-        <div class="logo">nuestra cueva</div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#historias">Novedades</a>
-            <a href="#galeria">Momentos</a>
-            <a href="#ella" class="nav-highlight">ESCRIBEME</a>
-        </nav>
-    </header>
-
-    <section class="hero" id="inicio">
+       <section class="hero" id="inicio">
         <div class="hero-content">
             <h1>Fragmentos de esta hermosa historia.</h1>
             <p>Un rincón digital para guardar las notas, fotos y recuerdos que construimos juntos.</p>
         </div>
     </section>
-      <span class="badge tag-tuya">Tu Nota</span>
+
+    <!-- NOTAS FIJAS (Envueltas en su contenedor correspondiente) -->
+    <main class="container">
+        <h2 class="section-title">Notas Destacadas</h2>
+        <div class="bento-grid">
+            
+            <article class="card">
+                <span class="badge tag-tuya">Tu Nota</span>
                 <div class="card-image" style="background-image: url('images/pagina1notas.jpg')"></div>
                 <div class="card-body">
                     <span class="card-date">01 de Julio, 2026</span>
                     <h3>Corazon grande e inocente</h3>
-                    <p> Tantas son tus cualidades pero de las caracteristicas mas peculiares tuyas, la inocencia y la bondad de tu corazon me salvan en medio de esta oscura y corrupta sociedad</p>
+                    <p>Tantas son tus cualidades pero de las caracteristicas mas peculiares tuyas, la inocencia y la bondad de tu corazon me salvan en medio de esta oscura y corrupta sociedad</p>
                 </div>
+            </article>
+
+            <article class="card">
                 <span class="badge tag-tuya">Tu Nota</span>
                 <div class="card-image" style="background-image: url('images/ron.jpg')"></div>
                 <div class="card-body">
                     <span class="card-date">09 de Julio, 2026</span>
                     <h3>Ojos de color miel</h3>
-                    <p> Mis ojos, estos mismos que te admiran con tanta obsesion. Los mismos que amas por su color, los mismos que odias por su expresion, los mismos que te ven brillar cada dia y no se cansan nunca de mirarte.</p>
+                    <p>Mis ojos, estos mismos que te admiran con tanta obsesion. Los mismos que amas por su color, los mismos que odias por su expresion, los mismos que te ven brillar cada dia y no se cansan nunca de mirarte.</p>
                 </div>
-                   
-
-</article>
-
+            </article>
 
         </div>
-
     </main> 
 
+    <!-- SECCIÓN DE NOTAS DINÁMICAS DESDE FIREBASE -->
     <main class="container" id="historias">
         <h2 class="section-title">Notas de DonRo</h2>
-        <div class="bento-grid" id="contenedorNotas">
-            
-            </div>
+        <div class="bento-grid" id="contenedorNotas"></div>
     </main>
 
-     <section class="her-section" id="ella">
-    <div class="container">
-        <div class="her-header">
-            <h2 class="section-title">Espacio para ti</h2>
-            <p class="subtitle">Este es tu rincón seguro. Escribe, sube fotos o deja lo que gustes aquí.</p>
-        </div>
+    <!-- SECCIÓN EXCLUSIVA DE ELLA  -->
+    <section class="her-section" id="ella">
+        <div class="container">
+            <div class="her-header">
+                <h2 class="section-title">Espacio para ti</h2>
+                <p class="subtitle">Este es tu rincón seguro. Escribe, sube fotos o deja lo que gustes aquí.</p>
+            </div>
 
-        <div class="blog-poster-container">
-            <!-- FORMULARIO DE ELLA -->
-            <form class="post-form" id="miFormulario">
-                <h3>¿Qué hay en tu mente hoy? ✨</h3>
-                <input type="text" id="tituloNota" placeholder="Título de tu nota o momento..." required>
-                <textarea rows="4" id="contenidoNota" placeholder="Escribe tu día a día aquí. Si deseas añadir una foto o video..." required></textarea>
-                <input type="file" id="archivoNota" accept="image/*, video/*">
-                <button type="submit" class="btn-submit">Publicar en nuestro muro</button>
-            </form>
-        </div>
+            <div class="blog-poster-container">
+                <!-- FORMULARIO DE ELLA -->
+                <form class="post-form" id="miFormulario">
+                    <h3>¿Qué hay en tu mente hoy? </h3>
+                    <input type="text" id="tituloNota" placeholder="Título de tu nota o momento..." required>
+                    <textarea rows="4" id="contenidoNota" placeholder="Escribe tu día a día aquí. Si deseas añadir una foto o video..." required></textarea>
+                    <input type="file" id="archivoNota" accept="image/*, video/*">
+                    <button type="submit" class="btn-submit">Publicar en nuestro muro</button>
+                </form>
+            </div>
 
-        <div class="blog-poster-container" style="margin-top: 30px; border-top: 2px dashed #e6e213e5; padding-top: 30px;">
-            <!-- FORMULARIO DE DONRO -->
-            <form class="post-form" id="formularioDonRo">
-                <h2 class="firma-ronald">Ronald reportándose...</h2>
-                <input type="text" id="tituloDonRo" placeholder="Título de tu nota o momento..." required>
-                <textarea rows="4" id="contenidoDonRo" placeholder="Escribe aquí tu día, un poema, o lo que quieras recordarle..." required></textarea>
-                <input type="file" id="archivoDonRo" accept="image/*, video/*">
-                <button type="submit" class="btn-submit" style="background-color: #4a5d6e;">Publicar como DonRo</button>
-            </form>
+            <div class="blog-poster-container" style="margin-top: 30px; border-top: 2px dashed #e6e213e5; padding-top: 30px;">
+                <!-- FORMULARIO DE DONRO -->
+                <form class="post-form" id="formularioDonRo">
+                    <h2 class="firma-ronald">Ronald reportándose...</h2>
+                    <input type="text" id="tituloDonRo" placeholder="Título de tu nota o momento..." required>
+                    <textarea rows="4" id="contenidoDonRo" placeholder="Escribe aquí tu día, un poema, o lo que quieras recordarle..." required></textarea>
+                    <input type="file" id="archivoDonRo" accept="image/*, video/*">
+                    <button type="submit" class="btn-submit" style="background-color: #4a5d6e;">Publicar como DonRo</button>
+                </form>
+            </div>
         </div>
-    </div>
-        </section>
     </section>
 
     <section class="container" id="galeria">
