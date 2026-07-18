@@ -1,4 +1,4 @@
-* --- Variables de Diseño y Paleta de Colores Contemporánea --- */
+/* --- Variables de Diseño y Paleta de Colores Contemporánea --- */
 :root {
     --bg-primary: #faf9f6b4; /* Blanco roto / crema suave */
     --bg-secondary: #eed85d;
@@ -241,7 +241,7 @@ h1, h2, h3 {
 
 /* Formulario para que ella escriba */
 .blog-poster-container {
-    background: rgb(14, 132, 148) (--card-bg);
+    background: var(--card-bg); 
     max-width: 650px;
     margin: 0 auto;
     padding: 2.5rem;
@@ -267,13 +267,12 @@ h1, h2, h3 {
     outline: none;
     transition: var(--transition);
 }
-
 .post-form input:focus, 
 .post-form textarea:focus {
-    border-color: green(--accent-ella);
+    border-color: var(--accent-ella); 
     background-color: #1e0c81;
-}
 
+}
 .form-footer {
     display: flex;
     justify-content: space-between;
@@ -289,7 +288,7 @@ h1, h2, h3 {
 .file-label:hover { color: var(--accent-ella); }
 
 .btn-submit {
-    background-color: green (--accent-ella);
+    background-color: var(--accent-ella);
     color: rgb(15, 10, 13);
     border: none;
     padding: 0.8rem 1.5rem;
