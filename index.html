@@ -152,7 +152,7 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- SCRIPT DE FIREBASE -->
+    <!-- SCRIPT DE FIREBASE CON COMPRESIÓN DE IMÁGENES -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -222,30 +222,89 @@
             console.error("Error al escuchar Firebase: ", error);
         });
 
-        // Convertir archivos a Base64
-        const procesarArchivo = (fileInput) => {
-            return new Promise((resolve) => {
-                if (fileInput.files && fileInput.files[0]) {
+        // FUNCIÓN PARA COMPRIMIR IMÁGENES ANTES DE SUBIR
+        const procesarYComprimirArchivo = (fileInput) => {
+            return new Promise((resolve, reject) => {
+                if (!fileInput.files || !fileInput.files[0]) {
+                    resolve(null);
+                    return;
+                }
+
+                const file = fileInput.files[0];
+
+                // Si es un video, no lo podemos comprimir fácilmente con canvas
+                if (file.type.startsWith('video/')) {
+                    if (file.size > 800000) { // Si pesa más de ~800KB
+                        alert("El video es muy pesado para la base de datos. Por favor elige uno muy corto o de menor resolución.");
+                        reject("Video demasiado pesado");
+                        return;
+                    }
                     const reader = new FileReader();
                     reader.onload = (e) => resolve(e.target.result);
-                    reader.readAsDataURL(fileInput.files[0]);
-                } else {
-                    resolve(null);
+                    reader.readAsDataURL(file);
+                    return;
                 }
+
+                // Compresión de imágenes usando Canvas
+                const img = new Image();
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    img.src = e.target.result;
+                };
+
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+
+                    // Redimensionar si la imagen es gigante (máximo 800px de ancho/alto)
+                    const MAX_WIDTH = 800;
+                    const MAX_HEIGHT = 800;
+
+                    if (width > height) {
+                        if (width > MAX_WIDTH) {
+                            height *= MAX_WIDTH / width;
+                            width = MAX_WIDTH;
+                        }
+                    } else {
+                        if (height > MAX_HEIGHT) {
+                            width *= MAX_HEIGHT / height;
+                            height = MAX_HEIGHT;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // Convertir a JPEG con calidad al 60%
+                    const dataUrl = canvas.toDataURL('image/jpeg', 0.6);
+                    resolve(dataUrl);
+                };
+
+                reader.onerror = (error) => reject(error);
+                reader.readAsDataURL(file);
             });
         };
 
         // 2. FORMULARIO DE ELLA
         document.getElementById('miFormulario').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const titulo = document.getElementById('tituloNota').value;
-            const contenido = document.getElementById('contenidoNota').value;
-            const fileInput = document.getElementById('archivoNota');
-            
-            const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
-            const archivoBase64 = await procesarArchivo(fileInput);
+            const btn = e.target.querySelector('button');
+            btn.disabled = true;
+            btn.textContent = "Publicando...";
 
             try {
+                const titulo = document.getElementById('tituloNota').value;
+                const contenido = document.getElementById('contenidoNota').value;
+                const fileInput = document.getElementById('archivoNota');
+                
+                const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
+                const archivoBase64 = await procesarYComprimirArchivo(fileInput);
+
                 await addDoc(collection(db, "notas"), {
                     autor: "Ella",
                     titulo: titulo,
@@ -254,25 +313,33 @@
                     fecha: fechaActual,
                     timestamp: new Date()
                 });
+
                 alert("¡Nota de ella publicada con éxito! ✨");
                 document.getElementById('miFormulario').reset();
             } catch (error) {
                 console.error("Error al publicar nota de ella: ", error);
-                alert("No se pudo publicar la nota. Revisa tu conexión.");
+                alert("Ocurrió un error al subir el archivo. Intenta con una imagen más liviana.");
+            } finally {
+                btn.disabled = false;
+                btn.textContent = "Publicar en nuestro muro";
             }
         });
 
         // 3. FORMULARIO DE DONRO
         document.getElementById('formularioDonRo').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const titulo = document.getElementById('tituloDonRo').value;
-            const contenido = document.getElementById('contenidoDonRo').value;
-            const fileInput = document.getElementById('archivoDonRo');
-            
-            const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
-            const archivoBase64 = await procesarArchivo(fileInput);
+            const btn = e.target.querySelector('button');
+            btn.disabled = true;
+            btn.textContent = "Publicando...";
 
             try {
+                const titulo = document.getElementById('tituloDonRo').value;
+                const contenido = document.getElementById('contenidoDonRo').value;
+                const fileInput = document.getElementById('archivoDonRo');
+                
+                const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
+                const archivoBase64 = await procesarYComprimirArchivo(fileInput);
+
                 await addDoc(collection(db, "notas"), {
                     autor: "DonRo",
                     titulo: titulo,
@@ -281,11 +348,15 @@
                     fecha: fechaActual,
                     timestamp: new Date()
                 });
+
                 alert("¡Nota de DonRo publicada con éxito!");
                 document.getElementById('formularioDonRo').reset();
             } catch (error) {
                 console.error("Error al publicar nota de DonRo: ", error);
-                alert("No se pudo publicar la nota.");
+                alert("Ocurrió un error al subir el archivo.");
+            } finally {
+                btn.disabled = false;
+                btn.textContent = "Publicar como DonRo";
             }
         });
     </script>
