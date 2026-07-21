@@ -12,15 +12,26 @@
 </head>
 <body>
 
+    <!-- BARRA DE NAVEGACIÓN -->
     <header class="navbar">
-       <section class="hero" id="inicio">
+        <div class="logo">nuestra cueva</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#historias">Novedades</a>
+            <a href="#galeria">Momentos</a>
+            <a href="#ella" class="nav-highlight">ESCRIBEME</a>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN HERO / INICIO -->
+    <section class="hero" id="inicio">
         <div class="hero-content">
             <h1>Fragmentos de esta hermosa historia.</h1>
             <p>Un rincón digital para guardar las notas, fotos y recuerdos que construimos juntos.</p>
         </div>
     </section>
 
-    <!-- NOTAS FIJAS (Envueltas en su contenedor correspondiente) -->
+    <!-- NOTAS DESTACADAS (ESTÁTICAS) -->
     <main class="container">
         <h2 class="section-title">Notas Destacadas</h2>
         <div class="bento-grid">
@@ -48,13 +59,13 @@
         </div>
     </main> 
 
-    <!-- SECCIÓN DE NOTAS DINÁMICAS DESDE FIREBASE -->
+    <!-- SECCIÓN DE NOVEDADES (NOTAS DINÁMICAS DE FIREBASE) -->
     <main class="container" id="historias">
-        <h2 class="section-title">Notas de DonRo</h2>
+        <h2 class="section-title">Notas de DonRo & Ella</h2>
         <div class="bento-grid" id="contenedorNotas"></div>
     </main>
 
-    <!-- SECCIÓN EXCLUSIVA DE ELLA  -->
+    <!-- SECCIÓN DE FORMULARIOS PARA ESCRIBIR -->
     <section class="her-section" id="ella">
         <div class="container">
             <div class="her-header">
@@ -62,10 +73,10 @@
                 <p class="subtitle">Este es tu rincón seguro. Escribe, sube fotos o deja lo que gustes aquí.</p>
             </div>
 
+            <!-- FORMULARIO DE ELLA -->
             <div class="blog-poster-container">
-                <!-- FORMULARIO DE ELLA -->
                 <form class="post-form" id="miFormulario">
-                    <h3>¿Qué hay en tu mente hoy? </h3>
+                    <h3>¿Qué hay en tu mente hoy? ✨</h3>
                     <input type="text" id="tituloNota" placeholder="Título de tu nota o momento..." required>
                     <textarea rows="4" id="contenidoNota" placeholder="Escribe tu día a día aquí. Si deseas añadir una foto o video..." required></textarea>
                     <input type="file" id="archivoNota" accept="image/*, video/*">
@@ -73,8 +84,8 @@
                 </form>
             </div>
 
+            <!-- FORMULARIO DE DONRO -->
             <div class="blog-poster-container" style="margin-top: 30px; border-top: 2px dashed #e6e213e5; padding-top: 30px;">
-                <!-- FORMULARIO DE DONRO -->
                 <form class="post-form" id="formularioDonRo">
                     <h2 class="firma-ronald">Ronald reportándose...</h2>
                     <input type="text" id="tituloDonRo" placeholder="Título de tu nota o momento..." required>
@@ -86,192 +97,197 @@
         </div>
     </section>
 
+    <!-- GALERÍA DE MOMENTOS -->
     <section class="container" id="galeria">
-    <h2 class="section-title">Galería de Instantes</h2>
-    <div class="gallery-grid">
-        
-        <div class="gallery-item">
-            <div class="card-inner">
-                <div class="card-front" style="background-image: url('images/fotoq.jpg');"></div>
-                <div class="card-back">
-                    <p>!Nada como salir en moto y TU abrazandome!</p>
+        <h2 class="section-title">Galería de Instantes</h2>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <div class="card-inner">
+                    <div class="card-front" style="background-image: url('images/fotoq.jpg');"></div>
+                    <div class="card-back">
+                        <p>¡Nada como salir en moto y TÚ abrazándome!</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="gallery-item">
-            <div class="card-inner">
-                <div class="card-front" style="background-image: url('images/foto7.jpg');"></div>
-                <div class="card-back">
-                    <p>Demostrandonos que si somos capaces de lo que nos propongamos</p>
+            
+            <div class="gallery-item">
+                <div class="card-inner">
+                    <div class="card-front" style="background-image: url('images/foto7.jpg');"></div>
+                    <div class="card-back">
+                        <p>Demostrándonos que sí somos capaces de lo que nos propongamos</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="gallery-item">
-            <div class="card-inner">
-                <div class="card-front" style="background-image: url('images/novi.jpg');"></div>
-                <div class="card-back">
-                    <p> UN DIA PARA NUNCA OLVIDAR</p>
+            
+            <div class="gallery-item">
+                <div class="card-inner">
+                    <div class="card-front" style="background-image: url('images/novi.jpg');"></div>
+                    <div class="card-back">
+                        <p>UN DÍA PARA NUNCA OLVIDAR</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="gallery-item">
-            <div class="card-inner">
-                <div class="card-front" style="background-image: url('images/foto8.jpg');"></div>
-                <div class="card-back">
-                    <p>Celebrar tambien hace parte del proceso mi amor </p>
+            
+            <div class="gallery-item">
+                <div class="card-inner">
+                    <div class="card-front" style="background-image: url('images/foto8.jpg');"></div>
+                    <div class="card-back">
+                        <p>Celebrar también hace parte del proceso mi amor</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
-</section>
+        </div>
+    </section>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
         <p class="love-phrase">"No importa cuando lo leas, siempre te estoy pensando"</p>
         <p class="credits">Hecho con amor • 2026</p>
     </footer>
 
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
     <a href="https://wa.me/573005008252" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" title="Contáctame por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
+    <!-- SCRIPT DE FIREBASE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-            import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyDiamsY9o45k5HFhv6Hz9sTDPkl_Y0w0sI",
-        authDomain: "publicaciones-6ca72.firebaseapp.com",
-        projectId: "publicaciones-6ca72",
-        storageBucket: "publicaciones-6ca72.firebasestorage.app",
-        messagingSenderId: "95062172488",
-        appId: "1:95062172488:web:48041d66ffb39b53ff897d",
-        measurementId: "G-DT9TDLGEJX"
-    };
+        const firebaseConfig = {
+            apiKey: "AIzaSyDiamsY9o45k5HFhv6Hz9sTDPkl_Y0w0sI",
+            authDomain: "publicaciones-6ca72.firebaseapp.com",
+            projectId: "publicaciones-6ca72",
+            storageBucket: "publicaciones-6ca72.firebasestorage.app",
+            messagingSenderId: "95062172488",
+            appId: "1:95062172488:web:48041d66ffb39b53ff897d",
+            measurementId: "G-DT9TDLGEJX"
+        };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const contenedor = document.getElementById('contenedorNotas');
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const contenedor = document.getElementById('contenedorNotas');
 
-    // 1. ESCUCHAR EN TIEMPO REAL Y MOSTRAR NOTAS
-    const q = query(collection(db, "notas"), orderBy("timestamp", "desc"));
+        // 1. ESCUCHAR EN TIEMPO REAL Y MOSTRAR NOTAS
+        const q = query(collection(db, "notas"), orderBy("timestamp", "desc"));
 
-    onSnapshot(q, (snapshot) => {
-        contenedor.innerHTML = ""; // Limpiar antes de actualizar
+        onSnapshot(q, (snapshot) => {
+            contenedor.innerHTML = ""; 
 
-        if(snapshot.empty) {
-            contenedor.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #888;'>Aún no hay notas compartidas. ¡Escribe la primera abajo! ✨</p>";
-            return;
-        }
+            if(snapshot.empty) {
+                contenedor.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #888;'>Aún no hay notas compartidas. ¡Escribe la primera abajo! ✨</p>";
+                return;
+            }
 
-        snapshot.forEach((doc) => {
-            const datos = doc.data();
-            const article = document.createElement('article');
-            
-            // Si el autor es DonRo, puedes darle un estilo o badge diferente
-            const esDonRo = datos.autor === "DonRo";
-            const claseBadge = esDonRo ? "tag-tuya" : "tag-ella"; // Ajusta tus clases CSS si tienes una para ella
-            const nombreAutor = esDonRo ? "DonRo" : "Ella";
+            snapshot.forEach((doc) => {
+                const datos = doc.data();
+                const article = document.createElement('article');
+                
+                const esDonRo = datos.autor === "DonRo";
+                const claseBadge = esDonRo ? "tag-tuya" : "tag-ella";
+                const nombreAutor = esDonRo ? "DonRo" : "Ella";
 
-            let elementoMultimedia = "";
-            if (datos.multimedia) {
-                if (datos.multimedia.startsWith("data:video/") || datos.multimedia.includes('.mp4')) {
-                    elementoMultimedia = `
-                        <video width="100%" controls style="border-radius: 12px; margin-bottom: 10px;">
-                            <source src="${datos.multimedia}">
-                            Tu navegador no soporta este video.
-                        </video>
-                    `;
-                } else {
-                    elementoMultimedia = `
-                        <div class="card-image" style="background-image: url('${datos.multimedia}'); height: 200px; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 10px;"></div>
-                    `;
+                let elementoMultimedia = "";
+                if (datos.multimedia) {
+                    if (datos.multimedia.startsWith("data:video/") || datos.multimedia.includes('.mp4')) {
+                        elementoMultimedia = `
+                            <video width="100%" controls style="border-radius: 12px; margin-bottom: 10px;">
+                                <source src="${datos.multimedia}">
+                                Tu navegador no soporta este video.
+                            </video>
+                        `;
+                    } else {
+                        elementoMultimedia = `
+                            <div class="card-image" style="background-image: url('${datos.multimedia}'); height: 200px; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 10px;"></div>
+                        `;
+                    }
                 }
-            }
 
-            article.className = 'card card-medium';
-            article.innerHTML = `
-                <span class="badge ${claseBadge}">Nota de ${nombreAutor}</span>
-                <div class="card-body">
-                    <span class="card-date">${datos.fecha}</span>
-                    <h3>${datos.titulo}</h3>
-                    ${elementoMultimedia}
-                    <p>${datos.contenido}</p>
-                </div>
-            `;
-            contenedor.appendChild(article);
-        });
-    });
-
-    // Función auxiliar para convertir archivos a Base64 de forma asíncrona
-    const procesarArchivo = (fileInput) => {
-        return new Promise((resolve) => {
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = (e) => resolve(e.target.result);
-                reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                resolve(null);
-            }
-        });
-    };
-
-    // 2. ENVIAR NOTA DESDE EL FORMULARIO DE ELLA
-    document.getElementById('miFormulario').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const titulo = document.getElementById('tituloNota').value;
-        const contenido = document.getElementById('contenidoNota').value;
-        const fileInput = document.getElementById('archivoNota');
-        
-        const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
-        const archivoBase64 = await procesarArchivo(fileInput);
-
-        try {
-            await addDoc(collection(db, "notas"), {
-                autor: "Ella",
-                titulo: titulo,
-                contenido: contenido,
-                multimedia: archivoBase64,
-                fecha: fechaActual,
-                timestamp: new Date()
+                article.className = 'card card-medium';
+                article.innerHTML = `
+                    <span class="badge ${claseBadge}">Nota de ${nombreAutor}</span>
+                    <div class="card-body">
+                        <span class="card-date">${datos.fecha}</span>
+                        <h3>${datos.titulo}</h3>
+                        ${elementoMultimedia}
+                        <p>${datos.contenido}</p>
+                    </div>
+                `;
+                contenedor.appendChild(article);
             });
-            alert("¡Nota de ella publicada con éxito! ");
-            document.getElementById('miFormulario').reset();
-        } catch (error) {
-            console.error("Error: ", error);
-            alert("No se pudo publicar la nota.");
-        }
-    });
+        }, (error) => {
+            console.error("Error al escuchar Firebase: ", error);
+        });
 
-    // 3. ENVIAR NOTA DESDE EL FORMULARIO DE DONRO (RONALD)
-    document.getElementById('formularioDonRo').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const titulo = document.getElementById('tituloDonRo').value;
-        const contenido = document.getElementById('contenidoDonRo').value;
-        const fileInput = document.getElementById('archivoDonRo');
-        
-        const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
-        const archivoBase64 = await procesarArchivo(fileInput);
-
-        try {
-            await addDoc(collection(db, "notas"), {
-                autor: "DonRo",
-                titulo: titulo,
-                contenido: contenido,
-                multimedia: archivoBase64,
-                fecha: fechaActual,
-                timestamp: new Date()
+        // Convertir archivos a Base64
+        const procesarArchivo = (fileInput) => {
+            return new Promise((resolve) => {
+                if (fileInput.files && fileInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.readAsDataURL(fileInput.files[0]);
+                } else {
+                    resolve(null);
+                }
             });
-            alert("¡Nota de DonRo publicada con éxito! ");
-            document.getElementById('formularioDonRo').reset();
-        } catch (error) {
-            console.error("Error: ", error);
-            alert("No se pudo publicar la nota.");
-        }
-    });
+        };
+
+        // 2. FORMULARIO DE ELLA
+        document.getElementById('miFormulario').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const titulo = document.getElementById('tituloNota').value;
+            const contenido = document.getElementById('contenidoNota').value;
+            const fileInput = document.getElementById('archivoNota');
+            
+            const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
+            const archivoBase64 = await procesarArchivo(fileInput);
+
+            try {
+                await addDoc(collection(db, "notas"), {
+                    autor: "Ella",
+                    titulo: titulo,
+                    contenido: contenido,
+                    multimedia: archivoBase64,
+                    fecha: fechaActual,
+                    timestamp: new Date()
+                });
+                alert("¡Nota de ella publicada con éxito! ✨");
+                document.getElementById('miFormulario').reset();
+            } catch (error) {
+                console.error("Error al publicar nota de ella: ", error);
+                alert("No se pudo publicar la nota. Revisa tu conexión.");
+            }
+        });
+
+        // 3. FORMULARIO DE DONRO
+        document.getElementById('formularioDonRo').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const titulo = document.getElementById('tituloDonRo').value;
+            const contenido = document.getElementById('contenidoDonRo').value;
+            const fileInput = document.getElementById('archivoDonRo');
+            
+            const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
+            const archivoBase64 = await procesarArchivo(fileInput);
+
+            try {
+                await addDoc(collection(db, "notas"), {
+                    autor: "DonRo",
+                    titulo: titulo,
+                    contenido: contenido,
+                    multimedia: archivoBase64,
+                    fecha: fechaActual,
+                    timestamp: new Date()
+                });
+                alert("¡Nota de DonRo publicada con éxito!");
+                document.getElementById('formularioDonRo').reset();
+            } catch (error) {
+                console.error("Error al publicar nota de DonRo: ", error);
+                alert("No se pudo publicar la nota.");
+            }
+        });
     </script>
 </body>
 </html>
